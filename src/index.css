@@ -1,13 +1,268 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .registerPageContainer {
+    @apply h-screen w-screen flex items-center justify-center bg-zinc-200;
+  }
+  .registerPageContent {
+    @apply w-full h-full md:w-96 md:h-[650px] text-center md:rounded-3xl bg-white bg-opacity-40 shadow-xl backdrop-blur-xl border-2 border-white;
+  }
+  .registerPageTitle {
+    @apply font-bold text-2xl text-slate-800 mt-8;
+  }
+  .registerPageSecondTitle {
+    @apply font-medium text-slate-700 text-opacity-80 mt-4;
+  }
+  .registerPageThirdTitle {
+    @apply font-medium text-slate-700 text-opacity-80 mt-5;
+  }
+  .registerPageSignInText {
+    @apply text-blue-500;
+  }
+  .registerPageFormContainer {
+    @apply mt-10 w-80 mx-auto flex flex-col gap-y-2;
+  }
+  .registerPageInput {
+    @apply rounded-xl p-4 w-full placeholder:font-medium placeholder:text-sm outline-none;
+  }
+  .registerPageSignUpButton {
+    @apply w-full py-4 mt-7 bg-rose-500 bg-opacity-80 text-white rounded-xl hover:bg-opacity-100;
+  }
+  .loginPageContainer {
+    @apply h-screen w-screen flex items-center justify-center bg-zinc-200;
+  }
+  .loginPageContent {
+    @apply w-full h-full md:w-96 md:h-[650px] text-center md:rounded-3xl bg-white bg-opacity-40 shadow-xl backdrop-blur-xl border-2 border-white;
+  }
+  .loginPageTitle {
+    @apply font-bold text-2xl text-slate-800 mt-32;
+  }
+  .loginPageSecondTitle {
+    @apply font-medium text-slate-700 text-opacity-80 mt-4;
+  }
+  .loginPageThirdTitle {
+    @apply font-medium text-slate-700 text-opacity-80 mt-5;
+  }
+  .loginPageSignInText {
+    @apply text-blue-500;
+  }
+  .loginPageFormContainer {
+    @apply mt-10 w-80 mx-auto flex flex-col gap-y-2;
+  }
+  .loginPageInput {
+    @apply rounded-xl p-4 w-full placeholder:font-medium placeholder:text-sm outline-none;
+  }
+  .loginPageLoginButton {
+    @apply w-full py-4 mt-7 bg-rose-500 bg-opacity-80 text-white rounded-xl hover:bg-opacity-100;
+  }
+  .homePageContainer {
+    @apply min-h-screen bg-zinc-200 dark:bg-zinc-800;
+  }
+  .headerContainer {
+    @apply w-full h-16 bg-white dark:text-gray-300 dark:bg-zinc-800 bg-opacity-40 shadow backdrop-blur-xl border-b border-white dark:border-zinc-700;
+  }
+  .headerContent {
+    @apply h-full max-w-7xl mx-auto flex items-center justify-between md:px-0 md:gap-x-0 px-2;
+  }
+  .headerAppName {
+    @apply font-bold md:text-xl text-base italic;
+  }
+  .headerUserEventContent {
+    @apply flex items-center justify-center md:gap-x-10 gap-x-5;
+  }
+  .headerUserContent {
+    @apply font-semibold flex items-center gap-x-1.5 md:text-base text-sm;
+  }
+  .headerUserName {
+    @apply font-bold;
+  }
+  .headerEventContent {
+    @apply flex items-center justify-center gap-x-5 md:gap-x-6;
+  }
+  .headerLogoutButton {
+    @apply bg-red-400 dark:bg-red-600 px-3 md:px-8 py-3 md:py-3 text-sm font-bold rounded-lg hover:bg-red-500 dark:hover:bg-red-700;
+  }
+  .taskListErrorContainer {
+    @apply w-full h-[200px] flex flex-col items-center justify-center dark:text-gray-300;
+  }
+  .taskListErrorTitle {
+    @apply text-xl italic;
+  }
+  .taskListLoadingContainer {
+    @apply w-full h-[200px] flex flex-col items-center justify-center dark:text-gray-300;
+  }
+  .taskListLoadingIcon {
+    @apply animate-spin;
+  }
+  .taskListLoadingTitle {
+    @apply mt-2 text-xl italic;
+  }
+  .taskListEmpty {
+    @apply text-center mt-10 w-full italic dark:text-gray-300;
+  }
+  .tasksContainer {
+    @apply md:mt-10 mt-7 md:w-1/2 w-full md:mx-auto;
+  }
+  .tasksTitle {
+    @apply text-center font-bold text-xl dark:text-gray-300;
+  }
+  .taskListContent {
+    @apply w-full flex flex-col gap-y-1 mt-5;
+  }
+  .taskContainer {
+    @apply flex items-center justify-between p-5 bg-white bg-opacity-40 dark:bg-opacity-20 shadow backdrop-blur-lg border border-white dark:border-zinc-400 rounded-xl dark:text-gray-100;
+  }
+  .taskLeftSection {
+    @apply flex flex-col;
+  }
+  .taskLeftTitle {
+    @apply font-bold text-lg;
+  }
+  .taskLeftDescription {
+    @apply mt-1;
+  }
+  .taskRightSection {
+    @apply flex items-center justify-center gap-x-4;
+  }
+  .taskEditButton {
+    @apply cursor-pointer hover:scale-110;
+  }
+  .taskRemoveButton {
+    @apply cursor-pointer hover:scale-110;
+  }
+  .taskOwnerContainer {
+    @apply mt-5;
+  }
+  .taskOwner {
+    @apply font-semibold italic;
+  }
+  .taskOwnerTitle {
+    @apply text-sm italic;
+  }
+  .confirmModalContainer {
+    @apply justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+  }
+  .confirmModalPage {
+    @apply relative my-6 mx-auto md:w-1/3 w-full;
+  }
+  .confirmModalPageBackground {
+    @apply opacity-25 fixed inset-0 z-40 bg-black;
+  }
+  .confirmModalContent {
+    @apply border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-zinc-200 dark:bg-zinc-800 outline-none focus:outline-none;
+  }
+  .confirmModalTitleSection {
+    @apply text-center px-6 py-9 rounded-t;
+  }
+  .confirmModalTitle {
+    @apply text-xl font-semibold italic dark:text-gray-200;
+  }
+  .confirmModalButtonSection {
+    @apply flex items-center justify-center px-6 py-9 rounded-b;
+  }
+  .confirmModalNoButton {
+    @apply text-red-500 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+  }
+  .confirmModalYesButton {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-gray-200 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 mb-1;
+  }
+  .newTaskAddContainer {
+    @apply text-right;
+  }
+  .newTaskAddButton {
+    @apply bg-green-500 dark:bg-green-700 px-3 md:px-8 py-3 md:py-3 text-sm font-bold rounded-lg hover:bg-green-600 dark:hover:bg-green-800 dark:text-gray-300;
+  }
+  .newTaskContainer {
+    @apply justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+  }
+  .newTaskPage {
+    @apply relative my-6 mx-auto md:w-1/3 w-full;
+  }
+  .newTaskBackground {
+    @apply opacity-25 fixed inset-0 z-40 bg-black;
+  }
+  .newTaskContent {
+    @apply border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-zinc-200 dark:bg-zinc-800 outline-none focus:outline-none;
+  }
+  .newTaskTitleSection {
+    @apply text-center px-6 py-9 rounded-t;
+  }
+  .newTaskTitle {
+    @apply text-xl font-semibold italic dark:text-gray-200;
+  }
+  .newTaskInputSection {
+    @apply relative p-6 flex-auto;
+  }
+  .newTaskInput {
+    @apply my-1 p-4 w-full rounded-xl bg-white bg-opacity-40 dark:bg-opacity-20 dark:text-gray-200 shadow backdrop-blur-lg border border-white dark:border-zinc-800 placeholder:font-medium placeholder:text-sm placeholder:italic outline-none;
+  }
+  .newTaskButtonSection {
+    @apply flex items-center justify-end px-6 py-9 rounded-b;
+  }
+  .newTaskCloseButton {
+    @apply text-red-500 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+  }
+  .newTaskSaveButton {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-gray-200 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 mb-1;
+  }
+
+  .editTaskPageContainer {
+    @apply justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+  }
+  .editTaskPagePage {
+    @apply relative my-6 mx-auto md:w-1/3 w-full;
+  }
+  .editTaskPageBackground {
+    @apply opacity-25 fixed inset-0 z-40 bg-black;
+  }
+  .editTaskPageContent {
+    @apply border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-zinc-200 dark:bg-zinc-800 outline-none focus:outline-none;
+  }
+  .editTaskPageTitleSection {
+    @apply text-center px-6 py-9 rounded-t;
+  }
+  .editTaskPageTitle {
+    @apply text-xl font-semibold italic dark:text-gray-200;
+  }
+  .editTaskPageInputSection {
+    @apply relative p-6 flex-auto;
+  }
+  .editTaskPageInput {
+    @apply my-1 p-4 w-full rounded-xl bg-white bg-opacity-40 dark:bg-opacity-20 dark:text-gray-200 shadow backdrop-blur-lg border border-white dark:border-zinc-800 placeholder:font-medium placeholder:text-sm placeholder:italic outline-none;
+  }
+  .editTaskPageButtonSection {
+    @apply flex items-center justify-end px-6 py-9 rounded-b;
+  }
+  .editTaskPageCloseButton {
+    @apply text-red-500 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+  }
+  .editTaskPageSaveButton {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-gray-200 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 mb-1;
+  }
+  .userDropdownContainer {
+    @apply w-full;
+  }
+  .userDropdown {
+    @apply my-1 p-4 w-full rounded-xl bg-white bg-opacity-40 dark:bg-opacity-20 dark:text-gray-200 shadow backdrop-blur-lg border border-white dark:border-zinc-800 outline-none;
+  }
+  .page404Container {
+    @apply w-screen h-screen flex items-center justify-center bg-zinc-200;
+  }
+  .page404Content {
+    @apply flex flex-col items-center justify-center gap-y-5;
+  }
+  .page404TitleSection {
+    @apply flex flex-col items-center justify-center;
+  }
+  .page404Title {
+    @apply font-bold text-9xl;
+  }
+  .page404SecondTitle {
+    @apply text-4xl;
+  }
+  .page404HomeButton {
+    @apply py-3 px-8 rounded-3xl italic bg-blue-300 font-medium hover:bg-blue-400;
+  }
 }
