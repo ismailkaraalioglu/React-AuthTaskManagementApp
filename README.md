@@ -1,7 +1,24 @@
 # Task Management Application with React
 
-## :sparkles: Live Demo
+## :computer: Setup
 
+1. Clone the repository and install its features.
+
+```
+npm install or yarn install
+```
+
+2. Create .env and add the follow key.
+
+```
+add project .env file and the follow key (REACT_APP_ENDPOINT=api)
+```
+
+3. Use the project locally (localhost).
+
+```
+npm start or yarn start
+```
 
 ## :fire: Technologies and Libraries
 
